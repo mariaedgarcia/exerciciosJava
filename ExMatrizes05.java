@@ -2,31 +2,43 @@ public class ExMatrizes05{
 
     public static void main (String[] args){
 
-        int [][] = new int [3][3];
-
-        // Preencher a matriz
-        for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 3; j++){
-                matriz[i][j] = (int)(Math.random() * 101);
+        int[][] matriz = { {1, 1, 1}, {1, 2, 1}, {2, 1, 1}};
+        int somaPrincipal = 0;
+        int somaSecundaria = 0;
+ 
+        System.out.println("Matriz: ");
+        for (int i = 0; i < 3; i++) {            
+            for (int y = 0; y < 3; y++) {        
+                  System.out.print("[" + matriz[i][y] + "] ");
+            }
+            System.out.println();            
+        }
+ 
+        for (int i = 0; i < 3; i++) {            
+            for (int y = 0; y < 3; y++) {        
+              if(y+i==2){
+                somaSecundaria += matriz[i][y];
+              }
             }
         }
-
-        int somaReferencia = matriz [0][0] + matriz [0][1] + matriz [0][2];
-        boolean verifica = false;
-
-        // For para verificar a soma das linhas
-
-        // For para verificar a soma das colunas
-
-        // Verifica a diagonal principal
-
-        // Verifica a diagonal secundaria
-
-        // Mostra mensagem se é ou não um quadrado mágico
-        if (verifica){
-            System.out.println("É um quadrado mágico");
-        } else {
-            System.out.printlm("Não é um quadrado mágico");
+        for (int i = 0; i < 3; i++) {            
+            for (int y = 0; y < 3; y++) {        
+              if(y==i){
+                somaPrincipal += matriz[i][i];
+              }
+            }
         }
+ 
+        System.out.print("Soma da coluna Principal: ");
+        System.out.println(somaPrincipal);
+        System.out.print("Soma da coluna Secundaria: ");
+        System.out.println(somaSecundaria);
+ 
+        if(somaPrincipal == somaSecundaria){
+            System.out.println("E um quadrado magico");
+        } else {
+            System.out.println("Nao e um quadrado magico");
+        }
+ 
     }
 }
